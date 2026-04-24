@@ -8,14 +8,14 @@ import {
   ThumbsUp, Cpu, Database,
 } from "lucide-react";
 
-/* ─── SVG layout constants (viewBox 0 0 1100 400) ──────────────────── */
-const LEFT_Y  = [75, 125, 175, 225, 275, 325];
-const RIGHT_Y = [85, 145, 205, 265, 325];
+/* ─── SVG layout constants (viewBox 0 0 1100 370) ──────────────────── */
+const LEFT_Y  = [60, 110, 160, 210, 260, 310];
+const RIGHT_Y = [65, 125, 185, 245, 305];
 
 const COLLECT_CX      = 270;
-const COLLECT_CY      = 200;
+const COLLECT_CY      = 185;
 const AUTO_CX         = 830;
-const AUTO_CY         = 200;
+const AUTO_CY         = 185;
 const LEFT_PILL_RIGHT = 176;
 const RIGHT_PILL_LEFT = 895;
 const DASH_LEFT       = 350;
@@ -184,7 +184,7 @@ function DashboardCard() {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.6, delay: 0.3 }}
       className="bg-white rounded-2xl border border-zinc-200/80 shadow-xl shadow-zinc-200/60 overflow-hidden"
-      style={{ width: 380, position: "absolute", left: DASH_LEFT, top: 110, zIndex: 10 }}
+      style={{ width: 380, position: "absolute", left: DASH_LEFT, top: 95, zIndex: 10 }}
     >
       <div className="px-4 pt-3.5 pb-2.5 border-b border-zinc-100">
         <div className="flex items-center justify-between mb-0.5">
@@ -223,11 +223,11 @@ export function Hero() {
     <section className="bg-white overflow-hidden">
 
       {/* Heading area */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-4 text-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 pb-3 text-center">
         <motion.div
           initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="flex justify-center mb-3"
+          className="flex justify-center mb-2"
         >
           <span className="inline-flex items-center gap-2 bg-violet-50 border border-violet-100 text-violet-700 text-[13px] font-medium px-4 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-500" />
@@ -238,7 +238,7 @@ export function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.08 }}
-          className="text-[52px] sm:text-[64px] lg:text-[74px] font-extrabold text-zinc-950 leading-[1.04] tracking-[-0.03em] mb-4"
+          className="text-[52px] sm:text-[64px] lg:text-[72px] font-extrabold text-zinc-950 leading-[1.04] tracking-[-0.03em] mb-3"
         >
           Web. Marketing.
           <br />
@@ -248,7 +248,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.16 }}
-          className="text-[17px] text-zinc-500 max-w-xl mx-auto mb-6"
+          className="text-[16px] text-zinc-500 max-w-xl mx-auto mb-5"
         >
           From your first website to full AI automation —<br className="hidden sm:block" />
           we build, market, and grow your digital presence.
@@ -277,10 +277,10 @@ export function Hero() {
 
       {/* Connection Diagram — desktop */}
       <div className="hidden lg:block">
-        <div className="relative mx-auto" style={{ width: 1100, height: 400 }}>
+        <div className="relative mx-auto" style={{ width: 1100, height: 370 }}>
 
           {/* SVG lines */}
-          <svg viewBox="0 0 1100 400" className="absolute inset-0 w-full h-full" fill="none">
+          <svg viewBox="0 0 1100 370" className="absolute inset-0 w-full h-full" fill="none">
             {LEFT_Y.map((cy, i) => (
               <path key={`lc-${i}`}
                 d={`M ${LEFT_PILL_RIGHT} ${cy} C 220 ${cy} 220 ${COLLECT_CY} ${COLLECT_CX - 38} ${COLLECT_CY}`}
@@ -326,7 +326,7 @@ export function Hero() {
           </svg>
 
           {/* Left pills */}
-          <div className="absolute left-0" style={{ top: 55 }}>
+          <div className="absolute left-0" style={{ top: 40 }}>
             <div className="flex flex-col gap-[14px]">
               {leftItems.map((item, i) => <PillCard key={item.label} {...item} delay={0.1 + i * 0.07} />)}
             </div>
@@ -337,7 +337,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className="absolute flex flex-col items-center gap-1"
-            style={{ left: COLLECT_CX - 40, top: COLLECT_CY - 56 }}
+            style={{ left: COLLECT_CX - 40, top: COLLECT_CY - 52 }}
           >
             <div className="w-[80px] h-[80px] rounded-2xl bg-white border border-zinc-200 shadow-lg flex items-center justify-center">
               <div className="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center">
@@ -355,7 +355,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.55 }}
             className="absolute flex flex-col items-center gap-1"
-            style={{ left: AUTO_CX - 40, top: AUTO_CY - 56 }}
+            style={{ left: AUTO_CX - 40, top: AUTO_CY - 52 }}
           >
             <div className="w-[80px] h-[80px] rounded-2xl bg-white border border-zinc-200 shadow-lg flex items-center justify-center">
               <div className="w-10 h-10 rounded-xl bg-violet-100 flex items-center justify-center">
@@ -366,7 +366,7 @@ export function Hero() {
           </motion.div>
 
           {/* Right pills */}
-          <div className="absolute right-0" style={{ top: 65 }}>
+          <div className="absolute right-0" style={{ top: 47 }}>
             <div className="flex flex-col gap-[18px]">
               {rightItems.map((item, i) => <RightPillCard key={item.label} {...item} delay={0.1 + i * 0.07} />)}
             </div>
@@ -389,7 +389,7 @@ export function Hero() {
       </div>
 
       {/* Tagline */}
-      <div className="text-center py-3">
+      <div className="text-center py-2">
         <p className="inline-flex items-center gap-2 text-[13px] text-zinc-500 font-medium">
           <span className="w-5 h-5 rounded-full bg-violet-100 flex items-center justify-center">
             <Zap className="w-3 h-3 text-violet-600" />
@@ -399,7 +399,7 @@ export function Hero() {
       </div>
 
       {/* Logo bar */}
-      <div className="border-t border-zinc-100 py-5">
+      <div className="border-t border-zinc-100 py-4">
         <div className="max-w-5xl mx-auto px-4">
           <p className="text-center text-[11px] font-medium text-zinc-400 uppercase tracking-widest mb-4">
             Trusted by businesses worldwide
