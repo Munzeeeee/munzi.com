@@ -68,7 +68,7 @@ async function run() {
     mkdirSync(dir, { recursive: true });
 
     try {
-      await page.goto(`${BASE_URL}${s.url}`, { waitUntil: "networkidle", timeout: 15000 });
+      await page.goto(`${BASE_URL}${s.url}`, { waitUntil: "load", timeout: 30000 });
 
       // Optional scroll before screenshot
       if (s.scrollY) await page.evaluate((y) => window.scrollTo(0, y), s.scrollY);
