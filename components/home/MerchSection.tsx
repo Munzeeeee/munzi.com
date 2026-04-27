@@ -1,35 +1,63 @@
 import Link from "next/link";
-import { MessageCircle, Truck, Shirt } from "lucide-react";
+import Image from "next/image";
+import { MessageCircle, Truck, ArrowRight } from "lucide-react";
 
 const tees = [
   {
-    slug: "sudo-make-me-a-sandwich-tee",
-    name: '"sudo make me a sandwich"',
-    subtitle: "The Linux classic",
+    slug: "lazy-monkey-tee",
+    name: "Lazy Monkey",
     price: 15,
+    image: "/merch/lazy-monkey.jpg",
+    waMsg: "Hi%2C+I%27d+like+to+order+the+Lazy+Monkey+Tee.+My+size%3A+",
+  },
+  {
+    slug: "savage-claw-tee",
+    name: "Savage Claw",
+    price: 15,
+    image: "/merch/savage-claw.jpg",
+    waMsg: "Hi%2C+I%27d+like+to+order+the+Savage+Claw+Tee.+My+size%3A+",
+  },
+  {
+    slug: "shadow-kitty-tee",
+    name: "Shadow Kitty",
+    price: 15,
+    image: "/merch/shadow-kitty-tee.jpg",
+    waMsg: "Hi%2C+I%27d+like+to+order+the+Shadow+Kitty+Tee.+My+size%3A+",
+  },
+  {
+    slug: "stealth-paw-tee",
+    name: "Stealth Paw",
+    price: 15,
+    image: "/merch/stealth-paw.jpg",
+    waMsg: "Hi%2C+I%27d+like+to+order+the+Stealth+Paw+Tee.+My+size%3A+",
+  },
+  {
+    slug: "unknown-being-tee",
+    name: "Unknown Being",
+    price: 15,
+    image: "/merch/unknown-being.jpg",
+    waMsg: "Hi%2C+I%27d+like+to+order+the+Unknown+Being+Tee.+My+size%3A+",
+  },
+  // Dev tees (no photo — CSS mockup)
+  {
+    slug: "sudo-make-me-a-sandwich-tee",
+    name: "sudo sandwich",
+    price: 15,
+    image: null,
+    darkMockup: true,
+    mockupText: ["sudo make me", "a sandwich"],
     waMsg:
-      "Hi%2C+I%27d+like+to+order+the+%22sudo+make+me+a+sandwich%22+Tee.+My+size%3A+",
-    // Dark tee mockup content
-    dark: true,
-    mockup: {
-      topLine: "$ _",
-      line1: "sudo make me",
-      line2: "a sandwich",
-    },
+      "Hi%2C+I%27d+like+to+order+the+sudo+make+me+a+sandwich+Tee.+My+size%3A+",
   },
   {
     slug: "hello-world-developer-tee",
-    name: '"Hello, World!"',
-    subtitle: "The dev origin story",
+    name: "Hello, World!",
     price: 15,
+    image: null,
+    darkMockup: false,
+    mockupText: ["Hello,", "World!"],
     waMsg:
-      "Hi%2C+I%27d+like+to+order+the+%22Hello%2C+World%21%22+Developer+Tee.+My+size%3A+",
-    dark: false,
-    mockup: {
-      topLine: null,
-      line1: "Hello,",
-      line2: "World!",
-    },
+      "Hi%2C+I%27d+like+to+order+the+Hello+World+Developer+Tee.+My+size%3A+",
   },
 ];
 
@@ -38,149 +66,129 @@ const sizes = ["S", "M", "L", "XL", "2XL", "3XL"];
 export function MerchSection() {
   return (
     <section className="bg-white py-20 border-t border-zinc-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="text-center mb-14">
-          <span className="inline-flex items-center gap-1.5 text-violet-600 text-sm font-semibold uppercase tracking-widest mb-3">
-            <Shirt className="w-4 h-4" />
-            Dev Merch
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-950 tracking-tight">
-            Rep your stack.{" "}
-            <span className="bg-gradient-to-r from-violet-600 to-blue-500 bg-clip-text text-transparent">
-              Wear your craft.
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+          <div>
+            <span className="inline-block text-violet-600 text-sm font-semibold uppercase tracking-widest mb-2">
+              Merch Drop
             </span>
-          </h2>
-          <p className="mt-3 text-zinc-500 text-lg max-w-md mx-auto">
-            Premium cotton tees for developers. Ships worldwide — just tell us your size.
-          </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-zinc-950 tracking-tight">
+              Wear something worth talking about
+            </h2>
+            <p className="mt-2 text-zinc-500">
+              Premium 100% cotton · Sizes S–3XL · Ships worldwide · $15 each
+            </p>
+          </div>
+          <Link
+            href="/products#merchandise"
+            className="flex items-center gap-1.5 text-sm font-semibold text-violet-600 hover:text-violet-800 transition-colors shrink-0"
+          >
+            View all merch <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* Tee Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          {tees.map((tee) => (
-            <div
-              key={tee.slug}
-              className="group bg-white border border-zinc-200 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-zinc-200/60 hover:-translate-y-1 transition-all duration-300"
-            >
-              {/* T-shirt mockup */}
-              <div
-                className={`relative flex items-center justify-center px-8 py-14 ${
-                  tee.dark ? "bg-zinc-950" : "bg-zinc-50"
-                }`}
-              >
-                {/* Subtle tee silhouette */}
-                <div
-                  className={`absolute inset-0 opacity-[0.04] ${
-                    tee.dark ? "bg-white" : "bg-zinc-950"
-                  }`}
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='1' fill='%23000'/%3E%3C/svg%3E")`,
-                    backgroundSize: "40px 40px",
-                  }}
-                />
-
-                {tee.dark ? (
-                  /* Terminal style — black tee */
-                  <div className="relative font-mono text-center">
-                    <p className="text-green-400 text-sm mb-3 opacity-70">
-                      $ <span className="animate-pulse">▊</span>
-                    </p>
-                    <p className="text-white text-2xl sm:text-3xl font-bold leading-tight tracking-tight">
-                      {tee.mockup.line1}
-                    </p>
-                    <p className="text-white text-2xl sm:text-3xl font-bold leading-tight tracking-tight">
-                      {tee.mockup.line2}
-                    </p>
-                  </div>
-                ) : (
-                  /* Clean type — white tee */
-                  <div className="relative text-center">
-                    <p className="text-zinc-950 text-4xl sm:text-5xl font-black leading-none tracking-tighter">
-                      {tee.mockup.line1}
-                    </p>
-                    <p className="text-zinc-950 text-4xl sm:text-5xl font-black leading-none tracking-tighter">
-                      {tee.mockup.line2}
-                    </p>
-                  </div>
-                )}
-
-                {/* Color label */}
-                <div className="absolute bottom-3 right-3 flex items-center gap-1.5">
-                  <span
-                    className={`w-4 h-4 rounded-full border-2 ${
-                      tee.dark
-                        ? "bg-zinc-950 border-zinc-600"
-                        : "bg-white border-zinc-300"
-                    }`}
-                  />
-                  <span
-                    className={`text-xs font-medium ${
-                      tee.dark ? "text-zinc-500" : "text-zinc-400"
-                    }`}
-                  >
-                    {tee.dark ? "Black" : "White"}
-                  </span>
-                </div>
-              </div>
-
-              {/* Card content */}
-              <div className="p-6">
-                {/* Name + price */}
-                <div className="flex items-start justify-between gap-3 mb-1">
-                  <h3 className="font-bold text-zinc-950 leading-snug font-mono">
-                    {tee.name}
-                  </h3>
-                  <span className="text-2xl font-bold text-zinc-950 shrink-0">
-                    ${tee.price}
-                  </span>
-                </div>
-                <p className="text-sm text-zinc-400 mb-5">{tee.subtitle}</p>
-
-                {/* Sizes */}
-                <div className="mb-5">
-                  <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">
-                    Available sizes
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {sizes.map((s) => (
-                      <span
-                        key={s}
-                        className="text-xs font-medium text-zinc-600 border border-zinc-200 rounded-md px-2 py-1 bg-zinc-50"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Shipping note */}
-                <div className="flex items-center gap-1.5 text-xs text-zinc-400 mb-5">
-                  <Truck className="w-3.5 h-3.5 shrink-0" />
-                  100% combed cotton · Ships worldwide
-                </div>
-
-                {/* CTA */}
-                <Link
-                  href={`https://wa.me/971569793494?text=${tee.waMsg}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full bg-zinc-950 hover:bg-zinc-800 text-white text-sm font-semibold py-3 rounded-xl transition-colors"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Order on WhatsApp
-                </Link>
-              </div>
-            </div>
+        {/* Product grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {tees.slice(0, 5).map((tee) => (
+            <TeeCard key={tee.slug} tee={tee} />
           ))}
         </div>
 
-        {/* Bottom note */}
-        <p className="text-center text-xs text-zinc-400 mt-8">
-          Reply with your size after tapping Order — we&apos;ll confirm and send a payment link.
-        </p>
+        {/* Dev tees row */}
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+          {tees.slice(5).map((tee) => (
+            <TeeCard key={tee.slug} tee={tee} wide />
+          ))}
+        </div>
+
+        {/* Bottom strip */}
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-zinc-50 border border-zinc-200 rounded-2xl px-6 py-5">
+          <div className="flex items-center gap-3 text-sm text-zinc-600">
+            <Truck className="w-5 h-5 text-zinc-400 shrink-0" />
+            <span>
+              Order via WhatsApp — reply with your size and we&apos;ll send a payment link.
+              Ships to UAE and worldwide.
+            </span>
+          </div>
+          <Link
+            href={`https://wa.me/971569793494?text=Hi%2C+I%27d+like+to+browse+your+merch`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors whitespace-nowrap shrink-0"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Browse on WhatsApp
+          </Link>
+        </div>
       </div>
     </section>
+  );
+}
+
+function TeeCard({ tee, wide = false }: { tee: (typeof tees)[number]; wide?: boolean }) {
+  return (
+    <Link
+      href={`/products/${tee.slug}`}
+      className="group bg-white border border-zinc-100 rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-zinc-200/70 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+    >
+      {/* Image / mockup */}
+      <div className={`relative overflow-hidden bg-zinc-50 ${wide ? "aspect-video" : "aspect-square"}`}>
+        {tee.image ? (
+          <Image
+            src={tee.image}
+            alt={tee.name}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+          />
+        ) : (
+          <div className={`w-full h-full flex items-center justify-center ${tee.darkMockup ? "bg-zinc-950" : "bg-zinc-50"}`}>
+            {tee.darkMockup ? (
+              <div className="text-center font-mono px-4">
+                <p className="text-green-400 text-xs mb-2 opacity-70">$ ▊</p>
+                {tee.mockupText!.map((line, i) => (
+                  <p key={i} className="text-white font-bold text-sm leading-snug">{line}</p>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center px-4">
+                {tee.mockupText!.map((line, i) => (
+                  <p key={i} className="text-zinc-950 font-black text-2xl leading-none tracking-tighter">{line}</p>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {/* Info */}
+      <div className="p-3 flex-1 flex flex-col">
+        <p className="font-semibold text-zinc-950 text-sm group-hover:text-violet-600 transition-colors leading-tight mb-2">
+          {tee.name}
+        </p>
+        <div className="flex flex-wrap gap-1 mb-3">
+          {sizes.map((s) => (
+            <span key={s} className="text-[10px] font-medium text-zinc-400 border border-zinc-200 rounded px-1.5 py-0.5 bg-zinc-50">
+              {s}
+            </span>
+          ))}
+        </div>
+        <div className="mt-auto flex items-center justify-between pt-2 border-t border-zinc-100">
+          <span className="font-bold text-zinc-950">${tee.price}</span>
+          <Link
+            href={`https://wa.me/971569793494?text=${tee.waMsg}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center gap-1 text-xs font-semibold bg-green-600 hover:bg-green-500 text-white px-2.5 py-1.5 rounded-lg transition-colors"
+          >
+            <MessageCircle className="w-3 h-3" />
+            Buy
+          </Link>
+        </div>
+      </div>
+    </Link>
   );
 }
