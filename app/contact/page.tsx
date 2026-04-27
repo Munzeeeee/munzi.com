@@ -17,8 +17,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "enquiry.munzeer@gmail.com",
-    href: "mailto:enquiry.munzeer@gmail.com",
+    value: "info@munzeer.com",
+    href: "mailto:info@munzeer.com",
   },
   {
     icon: Clock,

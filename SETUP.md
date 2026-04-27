@@ -17,7 +17,7 @@ cp .env.example .env.local
 #    RESEND_API_KEY      — from resend.com (free tier works)
 #    SUPABASE_URL        — from supabase.com project settings
 #    SUPABASE_ANON_KEY   — from supabase.com project settings
-#    OWNER_EMAIL         — your email (enquiry.munzeer@gmail.com)
+#    OWNER_EMAIL         — your email (info@munzeer.com)
 
 # 4. Run development server
 npm run dev

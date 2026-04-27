@@ -51,11 +51,11 @@ export function Footer() {
             </p>
             <div className="space-y-2 text-sm">
               <a
-                href="mailto:enquiry.munzeer@gmail.com"
+                href="mailto:info@munzeer.com"
                 className="flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4 shrink-0" />
-                enquiry.munzeer@gmail.com
+                info@munzeer.com
               </a>
               <a
                 href="https://wa.me/971569793494"

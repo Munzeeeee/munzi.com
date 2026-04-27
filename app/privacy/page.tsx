@@ -43,7 +43,7 @@ export default function PrivacyPage() {
         <h2>Contact Us</h2>
         <p>
           If you have questions about this Privacy Policy, please email us at{" "}
-          <a href="mailto:enquiry.munzeer@gmail.com">enquiry.munzeer@gmail.com</a>.
+          <a href="mailto:info@munzeer.com">info@munzeer.com</a>.
         </p>
       </div>
     </section>

@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     }
 
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
-    const OWNER_EMAIL = process.env.OWNER_EMAIL || "enquiry.munzeer@gmail.com";
+    const OWNER_EMAIL = process.env.OWNER_EMAIL || "info@munzeer.com";
 
     const planDetails = hostingPlans.find((p) => p.id === plan);
 
