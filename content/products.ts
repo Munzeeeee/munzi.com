@@ -263,45 +263,6 @@ export const products: Product[] = [
 
   // ─── Merchandise ──────────────────────────────────────────────
   {
-    slug: "sudo-make-me-a-sandwich-tee",
-    name: '"sudo make me a sandwich" Tee',
-    tagline: "The ultimate Linux joke on a premium cotton tee",
-    description:
-      "Show off your Linux roots with this classic hacker phrase tee. Premium 100% combed cotton, pre-shrunk, machine washable. Available in S–3XL. Printed on a black tee with crisp white text. Order via WhatsApp with your size.",
-    price: 15,
-    category: "Merchandise",
-    badge: "New",
-    coverBg: "bg-zinc-900",
-    coverEmoji: "👨‍💻",
-    features: [
-      "100% combed cotton, 180gsm",
-      "Unisex fit, sizes S–3XL",
-      "Black tee, white print",
-      "Pre-shrunk & machine washable",
-      "Ships worldwide",
-    ],
-    deliveryFormat: "Shipped worldwide",
-  },
-  {
-    slug: "hello-world-developer-tee",
-    name: '"Hello, World!" Developer Tee',
-    tagline: "The first line of code every dev ever runs",
-    description:
-      'The cleanest dev tee you\'ll own. Minimal "Hello, World!" print on premium white cotton. Perfect for developers, CS students, and anyone who started their journey with that first print statement.',
-    price: 15,
-    category: "Merchandise",
-    coverBg: "bg-zinc-100",
-    coverEmoji: "💻",
-    features: [
-      "100% combed cotton, 180gsm",
-      "Unisex fit, sizes S–3XL",
-      "White tee, black print",
-      "Pre-shrunk & machine washable",
-      "Ships worldwide",
-    ],
-    deliveryFormat: "Shipped worldwide",
-  },
-  {
     slug: "lazy-monkey-tee",
     name: "Lazy Monkey Tee",
     tagline: "Your spirit animal — chillin' like a pro",

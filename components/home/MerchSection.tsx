@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, Truck, ArrowRight } from "lucide-react";
 
-const tees = [
+const tees: { slug: string; name: string; price: number; image: string; waMsg: string }[] = [
   {
     slug: "lazy-monkey-tee",
     name: "Lazy Monkey",
@@ -38,27 +38,6 @@ const tees = [
     image: "/merch/unknown-being.jpg",
     waMsg: "Hi%2C+I%27d+like+to+order+the+Unknown+Being+Tee.+My+size%3A+",
   },
-  // Dev tees (no photo — CSS mockup)
-  {
-    slug: "sudo-make-me-a-sandwich-tee",
-    name: "sudo sandwich",
-    price: 15,
-    image: null,
-    darkMockup: true,
-    mockupText: ["sudo make me", "a sandwich"],
-    waMsg:
-      "Hi%2C+I%27d+like+to+order+the+sudo+make+me+a+sandwich+Tee.+My+size%3A+",
-  },
-  {
-    slug: "hello-world-developer-tee",
-    name: "Hello, World!",
-    price: 15,
-    image: null,
-    darkMockup: false,
-    mockupText: ["Hello,", "World!"],
-    waMsg:
-      "Hi%2C+I%27d+like+to+order+the+Hello+World+Developer+Tee.+My+size%3A+",
-  },
 ];
 
 const sizes = ["S", "M", "L", "XL", "2XL", "3XL"];
@@ -91,15 +70,8 @@ export function MerchSection() {
 
         {/* Product grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          {tees.slice(0, 5).map((tee) => (
+          {tees.map((tee) => (
             <TeeCard key={tee.slug} tee={tee} />
-          ))}
-        </div>
-
-        {/* Dev tees row */}
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
-          {tees.slice(5).map((tee) => (
-            <TeeCard key={tee.slug} tee={tee} wide />
           ))}
         </div>
 
@@ -127,39 +99,18 @@ export function MerchSection() {
   );
 }
 
-function TeeCard({ tee, wide = false }: { tee: (typeof tees)[number]; wide?: boolean }) {
+function TeeCard({ tee }: { tee: (typeof tees)[number] }) {
   return (
     <div className="group bg-white border border-zinc-100 rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-zinc-200/70 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-      {/* Clickable image area → product page */}
-      <Link href={`/products/${tee.slug}`} className="block">
-        <div className={`relative overflow-hidden bg-zinc-50 ${wide ? "aspect-video" : "aspect-square"}`}>
-          {tee.image ? (
-            <Image
-              src={tee.image}
-              alt={tee.name}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-            />
-          ) : (
-            <div className={`w-full h-full flex items-center justify-center ${tee.darkMockup ? "bg-zinc-950" : "bg-zinc-50"}`}>
-              {tee.darkMockup ? (
-                <div className="text-center font-mono px-4">
-                  <p className="text-green-400 text-xs mb-2 opacity-70">$ ▊</p>
-                  {tee.mockupText!.map((line, i) => (
-                    <p key={i} className="text-white font-bold text-sm leading-snug">{line}</p>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center px-4">
-                  {tee.mockupText!.map((line, i) => (
-                    <p key={i} className="text-zinc-950 font-black text-2xl leading-none tracking-tighter">{line}</p>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
+      {/* Clickable image → product page */}
+      <Link href={`/products/${tee.slug}`} className="block aspect-square relative overflow-hidden bg-zinc-50">
+        <Image
+          src={tee.image}
+          alt={tee.name}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+        />
       </Link>
 
       {/* Info */}
