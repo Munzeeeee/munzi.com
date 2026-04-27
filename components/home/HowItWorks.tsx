@@ -48,14 +48,14 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {steps.map((step, i) => (
-            <div key={step.number} className="relative">
+            <div key={step.number} className="relative flex">
               {/* Connector line */}
               {i < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-6 left-full w-full h-px bg-gradient-to-r from-zinc-700 to-transparent z-0" />
               )}
-              <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-violet-800 transition-colors">
+              <div className="relative w-full bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-violet-800 transition-colors flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-violet-400 font-mono text-sm font-bold">{step.number}</span>
                   <div className="w-9 h-9 rounded-lg bg-violet-950 flex items-center justify-center">
