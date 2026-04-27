@@ -50,51 +50,14 @@ const metrics = [
 // LogoHub:     https://cdn.jsdelivr.net/gh/saeedreza/logohub@main/logos/{id}/{id}.svg
 // SimpleIcons: https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/{id}.svg
 
-// Simple Icons render as black SVGs — use brightness(0) to normalise colour,
-// then opacity for the muted look consistent with the LogoHub coloured logos.
 const brandLogos = [
-  {
-    name: "Shopify",
-    src: "https://cdn.jsdelivr.net/gh/saeedreza/logohub@main/logos/shopify/shopify.svg",
-    height: "h-7",
-    mono: false,
-  },
-  {
-    name: "Google",
-    src: "https://cdn.jsdelivr.net/gh/saeedreza/logohub@main/logos/google/google.svg",
-    height: "h-5",
-    mono: false,
-  },
-  {
-    name: "Meta",
-    src: "https://cdn.jsdelivr.net/gh/saeedreza/logohub@main/logos/meta/meta.svg",
-    height: "h-5",
-    mono: false,
-  },
-  {
-    name: "TikTok",
-    src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tiktok.svg",
-    height: "h-7",
-    mono: true,
-  },
-  {
-    name: "OpenAI",
-    src: "https://cdn.jsdelivr.net/gh/saeedreza/logohub@main/logos/openai/openai.svg",
-    height: "h-5",
-    mono: false,
-  },
-  {
-    name: "Amazon",
-    src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazon.svg",
-    height: "h-7",
-    mono: true,
-  },
-  {
-    name: "WooCommerce",
-    src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/woocommerce.svg",
-    height: "h-7",
-    mono: true,
-  },
+  { name: "Shopify",    src: "/logos/shopify.svg",    height: "h-7" },
+  { name: "Google",     src: "/logos/google.svg",     height: "h-5" },
+  { name: "Meta",       src: "/logos/meta.svg",       height: "h-5" },
+  { name: "OpenAI",     src: "/logos/openai.svg",     height: "h-6" },
+  { name: "Anthropic",  src: "/logos/anthropic.svg",  height: "h-6" },
+  { name: "Stripe",     src: "/logos/stripe.svg",     height: "h-5" },
+  { name: "React",      src: "/logos/react.svg",      height: "h-6" },
 ];
 
 /* ─── Sub-components ────────────────────────────────────────────────── */
@@ -377,11 +340,7 @@ export function Hero() {
                 key={logo.name}
                 src={logo.src}
                 alt={logo.name}
-                className={`${logo.height} w-auto object-contain select-none transition-opacity hover:opacity-100 ${
-                  logo.mono
-                    ? "opacity-40 [filter:brightness(0)]"
-                    : "opacity-60"
-                }`}
+                className={`${logo.height} w-auto object-contain select-none opacity-60 hover:opacity-100 transition-opacity`}
               />
             ))}
           </div>
