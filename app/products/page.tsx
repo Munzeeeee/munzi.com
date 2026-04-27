@@ -3,9 +3,9 @@ import { products } from "@/content/products";
 import { ProductCard } from "@/components/products/ProductCard";
 
 export const metadata: Metadata = {
-  title: "Digital Products — Templates, eBooks & Prompt Packs",
+  title: "Products — Templates, eBooks, Plugins & Merch",
   description:
-    "Practical digital products from Munzeer.com — marketing templates, eBooks, SEO tools, and ChatGPT prompt packs. Instant download.",
+    "Digital products from Munzeer.com — marketing templates, eBooks, AI prompt packs, WordPress plugins, printables, and developer merch. Instant download.",
 };
 
 export default function ProductsPage() {
@@ -20,10 +20,10 @@ export default function ProductsPage() {
             Digital Products
           </span>
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Templates, eBooks & tools
+            Templates, eBooks & tools — instant download
           </h1>
           <p className="text-xl text-zinc-400">
-            Practical resources we actually use in our agency. Instant download, immediate value.
+            Practical resources our team actually uses. Ready to use today.
           </p>
         </div>
       </section>

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Check, Download, ArrowLeft, MessageCircle } from "lucide-react";
+import Image from "next/image";
+import { Check, Download, Truck, ArrowLeft, MessageCircle } from "lucide-react";
 import { products } from "@/content/products";
+
+const isShipped = (fmt: string) => fmt.toLowerCase().includes("ship");
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -50,8 +53,9 @@ export default async function ProductPage({ params }: Props) {
             <p className="text-lg text-violet-600 font-medium mb-4">{product.tagline}</p>
             <p className="text-zinc-500 leading-relaxed mb-6">{product.description}</p>
             <div className="flex items-center gap-2 text-sm text-zinc-500 mb-8">
-              <Download className="w-4 h-4" />
-              Delivered as: <span className="font-medium text-zinc-700">{product.deliveryFormat}</span>
+              {isShipped(product.deliveryFormat) ? <Truck className="w-4 h-4" /> : <Download className="w-4 h-4" />}
+              {isShipped(product.deliveryFormat) ? "Delivery:" : "Delivered as:"}{" "}
+              <span className="font-medium text-zinc-700">{product.deliveryFormat}</span>
             </div>
             <div className="flex items-center gap-4 mb-8">
               <span className="text-5xl font-bold text-zinc-950">${product.price}</span>
@@ -76,8 +80,17 @@ export default async function ProductPage({ params }: Props) {
             </p>
           </div>
 
-          {/* Right: features */}
-          <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-7">
+          {/* Right: cover + features */}
+          <div className="space-y-5">
+            {/* Cover image */}
+            <div className={`w-full h-56 rounded-2xl flex items-center justify-center overflow-hidden ${product.coverBg || "bg-zinc-50"}`}>
+              {product.image ? (
+                <Image src={product.image} alt={product.name} width={600} height={224} className="w-full h-full object-cover" />
+              ) : (
+                <span className="text-7xl select-none" role="img" aria-label={product.name}>{product.coverEmoji || "📦"}</span>
+              )}
+            </div>
+            <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-7">
             <h2 className="font-semibold text-zinc-950 mb-5">What you get</h2>
             <ul className="space-y-3">
               {product.features.map((f) => (
@@ -89,6 +102,7 @@ export default async function ProductPage({ params }: Props) {
                 </li>
               ))}
             </ul>
+            </div>
           </div>
         </div>
       </section>
