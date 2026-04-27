@@ -46,89 +46,56 @@ const metrics = [
   { label: "Revenue",        value: "$8.7K", change: "+23.6%", path: "M0,19 L6,17 L12,15 L18,14 L24,11 L30,8 L36,5 L42,2",  color: "#22c55e" },
 ];
 
-/* ─── Brand Logo SVGs ───────────────────────────────────────────────── */
+/* ─── Brand logos via LogoHub CDN + Simple Icons ────────────────────── */
+// LogoHub:     https://cdn.jsdelivr.net/gh/saeedreza/logohub@main/logos/{id}/{id}.svg
+// SimpleIcons: https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/{id}.svg
 
-function ShopifyLogo() {
-  return (
-    <div className="flex items-center gap-1.5">
-      <svg className="h-6 w-auto" viewBox="0 0 109 124" fill="#96BF48">
-        <path d="M74.7 14.8c-.1-.6-.6-1-1.2-1-.5 0-10.4-.2-10.4-.2s-8.3-8-9-8.8c-.3-.3-.6-.4-.9-.4l-4.2 106.5 32-7.1L96.9 46c-.1-.6-.6-1-1.2-1-.5 0-10.4-.2-10.4-.2s-8.3-8-9-8.8c-.8-.8-2.3-.5-2.9-.4 0 0-1.6.5-4.2 1.3-1.4-4.1-3.9-7.7-8.3-7.7h-.7c-1.3-1.6-2.9-2.3-4.3-2.3C44.3 17 38.8 27.3 37 35.9l-8 2.5c-2.3.7-2.4.8-2.7 3L22 97.4l54 9.6V14.8zM59.4 18.7v.5c-2.8.9-5.8 1.8-8.8 2.7.8-3.2 2.4-6.4 5.1-7.7.9 1.3 2.7 3.6 3.7 4.5zm-6.6-5.1c.4 0 .9.1 1.3.3-3.3 1.5-6.8 5.4-8.3 13.1l-6.3 2C41.3 21.7 46.6 13.6 52.8 13.6zm5.1 54.2c-.4-.2-.8-.4-1.3-.5-2.4-.7-3.5-1.3-3.5-2.7 0-1.2 1.1-2 2.8-2 1.7 0 3.3.7 3.3.7l1.2-3.7s-1.1-.9-4.2-.9c-4.4 0-7.4 2.5-7.4 6 0 3.2 2.3 5 6 6.2 2 .6 2.8 1.3 2.8 2.4 0 1.2-1 1.9-2.8 1.9-2.7 0-5.2-1.4-5.2-1.4l-1.3 3.7s2.2 1.7 6.2 1.7c4.6 0 7.7-2.3 7.7-6.2-.1-3.4-2.1-5.1-4.3-6.2z"/>
-      </svg>
-      <span className="text-[15px] font-bold text-[#96BF48]">shopify</span>
-    </div>
-  );
-}
-
-function GoogleLogo() {
-  return (
-    <div className="flex items-center gap-1.5">
-      <svg className="h-5 w-5" viewBox="0 0 48 48">
-        <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.3 9 3.4l6.7-6.7C35.7 2.7 30.2.5 24 .5 14.8.5 6.9 5.9 3.2 13.8l7.8 6C12.8 13.8 17.9 9.5 24 9.5z"/>
-        <path fill="#4285F4" d="M46.6 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.2 5.5-4.5 7.2l7.1 5.5c4.2-3.9 6.3-9.6 6.3-16.7z"/>
-        <path fill="#34A853" d="M10.9 28.2A14.6 14.6 0 0 1 9.5 24c0-1.5.3-2.9.7-4.2l-7.8-6A23.5 23.5 0 0 0 .5 24c0 3.8.9 7.4 2.4 10.7l8-6.5z"/>
-        <path fill="#FBBC05" d="M24 47.5c6.2 0 11.4-2 15.2-5.5l-7.1-5.5c-2 1.4-4.6 2.2-8.1 2.2-6.1 0-11.2-4.1-13-9.7l-8 6.5C6.7 42.1 14.8 47.5 24 47.5z"/>
-      </svg>
-      <span className="font-semibold text-[15px] text-zinc-600">Google</span>
-    </div>
-  );
-}
-
-function MetaLogo() {
-  return (
-    <div className="flex items-center gap-1.5">
-      <svg className="h-4 w-auto" viewBox="0 0 64 20">
-        <path fill="#0082FB" d="M3.9 10c0-1.6.3-3 .9-4 .6-1 1.4-1.5 2.4-1.5 1.3 0 2.5.7 3.8 2.2 1.2 1.4 2.2 3.2 3 5.3-1 1.7-2 3-2.9 3.8-.9.8-1.8 1.2-2.8 1.2-1 0-1.9-.6-2.6-1.7-.6-1.1-.8-2.5-.8-5.3zm19.9-5c-1.3-1.4-2.9-2.1-4.7-2.1-1.3 0-2.6.5-3.9 1.4-1.1.8-2 1.9-2.8 3.3-.9-1.5-1.8-2.7-2.8-3.5-1-.8-2.2-1.2-3.5-1.2-2 0-3.6.9-4.8 2.6C.2 7.1-.4 9.3-.4 12.1c0 2.8.7 5.1 2 6.7 1.3 1.6 3 2.4 5 2.4 1.4 0 2.7-.5 3.9-1.4 1.2-.9 2.3-2.3 3.4-4.1.9 1.7 1.9 3 2.9 3.9 1 .9 2.2 1.6 3.6 1.6 2 0 3.7-.9 5-2.7 1.3-1.8 1.9-4.1 1.9-7 0-2.7-.6-4.9-1.9-6.4zm-5.9 10c-.9.8-1.8 1.2-2.7 1.2-1 0-2-.5-2.8-1.5-.9-1-1.8-2.7-2.7-4.9 1-1.7 2-3 3-3.8.9-.8 1.9-1.2 2.8-1.2 1.2 0 2.2.6 3 1.8.8 1.1 1.2 2.6 1.2 4.3 0 1.9-.6 3.3-1.8 4.1zm15.8-10c-1.3-1.4-3-2.1-5-2.1h-.7v2.3h.7c1.2 0 2.2.6 3 1.8.7 1.2 1.1 2.6 1.1 4.3 0 1.7-.4 3.1-1.1 4.1-.7 1-1.6 1.5-2.8 1.5h-.9v2.3h.9c2.1 0 3.8-.9 5.1-2.6 1.3-1.8 1.9-4 1.9-6.7 0-2.4-.7-4.5-2.2-6z"/>
-      </svg>
-      <span className="font-bold text-[15px] text-zinc-600">Meta</span>
-    </div>
-  );
-}
-
-function TikTokLogo() {
-  return (
-    <div className="flex items-center gap-1.5">
-      <svg className="h-5 w-5" viewBox="0 0 48 48" fill="currentColor">
-        <path d="M41 10.5A10 10 0 0 1 31 .5h-7v32.2a5.3 5.3 0 0 1-5.3 5 5.3 5.3 0 0 1-5.3-5.3 5.3 5.3 0 0 1 5.3-5.3c.5 0 1 .1 1.5.2v-7.2a12.6 12.6 0 0 0-1.5-.1A12.6 12.6 0 0 0 6 32.7 12.6 12.6 0 0 0 18.7 45.3a12.6 12.6 0 0 0 12.6-12.6V18a17 17 0 0 0 10 3.2v-6.9a10 10 0 0 1-5.7-3.7C35.2 10.5 41 10.5 41 10.5z"/>
-      </svg>
-      <span className="font-bold text-[14px] text-zinc-700 tracking-tight">TikTok</span>
-    </div>
-  );
-}
-
-function OpenAILogo() {
-  return (
-    <div className="flex items-center gap-1.5">
-      <svg className="h-5 w-5" viewBox="0 0 40 40" fill="#1a1a1a">
-        <path d="M37.5 16.3a9.6 9.6 0 0 0-.8-7.9 9.8 9.8 0 0 0-10.5-4.7 9.6 9.6 0 0 0-7.2-3.2 9.8 9.8 0 0 0-9.3 6.8 9.6 9.6 0 0 0-6.4 4.6 9.8 9.8 0 0 0 1.2 11.5 9.6 9.6 0 0 0 .8 7.9 9.8 9.8 0 0 0 10.5 4.7 9.6 9.6 0 0 0 7.2 3.2 9.8 9.8 0 0 0 9.3-6.8 9.6 9.6 0 0 0 6.4-4.6 9.8 9.8 0 0 0-1.2-11.5zM22.4 37a7.3 7.3 0 0 1-4.7-1.7l.2-.1 7.8-4.5a1.3 1.3 0 0 0 .6-1.1V18.1l3.3 1.9v9.1A7.3 7.3 0 0 1 22.4 37zm-15.7-6.7a7.3 7.3 0 0 1-.9-4.9l.2.1 7.8 4.5a1.3 1.3 0 0 0 1.3 0l9.5-5.5v3.8L15.7 33a7.3 7.3 0 0 1-9-.7zM5.5 13.2a7.3 7.3 0 0 1 3.8-3.2v9.2a1.3 1.3 0 0 0 .6 1.1l9.5 5.5-3.3 1.9-7.8-4.5a7.3 7.3 0 0 1-2.8-10zm17.6 16L14 24l-3.3-1.9V14l3.3-1.9 9.1 5.2 3.3-1.9-9.1-5.2a1.3 1.3 0 0 0-1.3 0l-7.8 4.5V11l8.9-5.1 3.3 1.9V17l-3.3-1.9zm1.5-3.4V18l3.3 1.9v7.9l-3.3-1.9zm7.7-9.3-.2-.1-7.8-4.5a1.3 1.3 0 0 0-1.3 0l-9.5 5.5v-3.8l8.9-5.1a7.3 7.3 0 0 1 9.9 7.6v.4zm.9 4.3-3.3-1.9V10.7a7.3 7.3 0 0 1 4.8 9.8l-.2-.1-1.3-3.6z"/>
-      </svg>
-      <span className="font-semibold text-[14px] text-zinc-700">OpenAI</span>
-    </div>
-  );
-}
-
-function AmazonLogo() {
-  return (
-    <div className="flex flex-col items-start leading-none">
-      <span className="text-[16px] font-bold text-zinc-700" style={{ fontFamily: "Georgia, serif", letterSpacing: "-0.02em" }}>amazon</span>
-      <svg className="w-14 h-2.5 -mt-0.5" viewBox="0 0 56 10">
-        <path d="M2 6 Q14 10 28 8 Q42 6 54 2" stroke="#FF9900" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-        <path d="M50 0 L54 2 L52 5" stroke="#FF9900" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    </div>
-  );
-}
-
-function WooCommerceLogo() {
-  return (
-    <div className="flex items-center gap-1">
-      <svg className="h-5 w-auto" viewBox="0 0 45 28" fill="none">
-        <rect width="45" height="28" rx="7" fill="#7F54B3"/>
-        <path d="M6 7.5c-.3 0-.5.2-.5.5l-1.2 12 3.2-1.6 2 4.1c.2.3.5.4.8.3.3-.1.4-.4.4-.7l.3-13.1H6zm11 0c-.3 0-.5.2-.5.5l-1.2 12 3.2-1.6 2 4.1c.2.3.5.4.8.3.3-.1.4-.4.4-.7l.3-13.1H17zm11 0c-.3 0-.5.2-.5.5l-1.2 12 3.2-1.6 2 4.1c.2.3.5.4.8.3.3-.1.4-.4.4-.7L33 8H28z" fill="white"/>
-      </svg>
-      <span className="font-semibold text-[13px] text-zinc-500">WooCommerce</span>
-    </div>
-  );
-}
+// Simple Icons render as black SVGs — use brightness(0) to normalise colour,
+// then opacity for the muted look consistent with the LogoHub coloured logos.
+const brandLogos = [
+  {
+    name: "Shopify",
+    src: "https://cdn.jsdelivr.net/gh/saeedreza/logohub@main/logos/shopify/shopify.svg",
+    height: "h-7",
+    mono: false,
+  },
+  {
+    name: "Google",
+    src: "https://cdn.jsdelivr.net/gh/saeedreza/logohub@main/logos/google/google.svg",
+    height: "h-5",
+    mono: false,
+  },
+  {
+    name: "Meta",
+    src: "https://cdn.jsdelivr.net/gh/saeedreza/logohub@main/logos/meta/meta.svg",
+    height: "h-5",
+    mono: false,
+  },
+  {
+    name: "TikTok",
+    src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tiktok.svg",
+    height: "h-7",
+    mono: true,
+  },
+  {
+    name: "OpenAI",
+    src: "https://cdn.jsdelivr.net/gh/saeedreza/logohub@main/logos/openai/openai.svg",
+    height: "h-5",
+    mono: false,
+  },
+  {
+    name: "Amazon",
+    src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazon.svg",
+    height: "h-7",
+    mono: true,
+  },
+  {
+    name: "WooCommerce",
+    src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/woocommerce.svg",
+    height: "h-7",
+    mono: true,
+  },
+];
 
 /* ─── Sub-components ────────────────────────────────────────────────── */
 
@@ -404,14 +371,19 @@ export function Hero() {
           <p className="text-center text-[11px] font-medium text-zinc-400 uppercase tracking-widest mb-4">
             Trusted by businesses worldwide
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            <ShopifyLogo />
-            <GoogleLogo />
-            <MetaLogo />
-            <TikTokLogo />
-            <OpenAILogo />
-            <AmazonLogo />
-            <WooCommerceLogo />
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+            {brandLogos.map((logo) => (
+              <img
+                key={logo.name}
+                src={logo.src}
+                alt={logo.name}
+                className={`${logo.height} w-auto object-contain select-none transition-opacity hover:opacity-100 ${
+                  logo.mono
+                    ? "opacity-40 [filter:brightness(0)]"
+                    : "opacity-60"
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
