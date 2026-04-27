@@ -25,6 +25,7 @@ const footerLinks = {
     { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Hosting Plans", href: "/hosting" },
     { label: "Digital Products", href: "/products" },
   ],
@@ -148,6 +149,7 @@ export function Footer() {
           <div className="flex items-center gap-4 text-xs text-zinc-500">
             <Link href="/privacy" className="hover:text-zinc-300 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-zinc-300 transition-colors">Terms of Service</Link>
+            <Link href="/refund" className="hover:text-zinc-300 transition-colors">Refund Policy</Link>
           </div>
         </div>
       </div>

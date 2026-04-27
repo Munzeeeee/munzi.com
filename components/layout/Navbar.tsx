@@ -7,6 +7,7 @@ import {
   Globe, TrendingUp, Zap, ShoppingCart, Cpu, ChevronDown,
   Menu, X, ShoppingBag, Store, Search, Megaphone, Video,
   Star, QrCode, CreditCard, Layers, MessageSquare, Package, Rocket,
+  Puzzle, Code, Wrench, BookMarked,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -56,6 +57,16 @@ const megaMenuData = [
       { name: "AI Automation", slug: "ai-automation", icon: Zap },
       { name: "MVP Development", slug: "mvp-development", icon: Rocket },
       { name: "SaaS Products", slug: "saas-products", icon: Layers },
+    ],
+  },
+  {
+    category: "Web Tools & Plugins", slug: "web-tools", icon: Puzzle,
+    color: "text-emerald-600", bg: "bg-emerald-50",
+    services: [
+      { name: "Chrome Extension", slug: "chrome-extension", icon: Code },
+      { name: "WordPress Plugin", slug: "wordpress-plugin", icon: Wrench },
+      { name: "REST API", slug: "rest-api", icon: BookMarked },
+      { name: "Web Tool", slug: "web-tool", icon: Puzzle },
     ],
   },
 ];
@@ -168,7 +179,7 @@ export function Navbar() {
             onMouseLeave={() => setServicesOpen(false)}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              <div className="grid grid-cols-5 gap-6">
+              <div className="grid grid-cols-6 gap-5">
                 {megaMenuData.map((cat) => (
                   <div key={cat.slug}>
                     <Link href={`/services/${cat.slug}`} className="flex items-center gap-2 mb-3 group">
