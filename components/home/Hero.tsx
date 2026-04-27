@@ -57,7 +57,7 @@ const brandLogos = [
   { name: "OpenAI",     src: "/logos/openai.svg",     height: "h-6" },
   { name: "Stripe",     src: "/logos/stripe.svg",     height: "h-5" },
   { name: "React",      src: "/logos/react.svg",      height: "h-6" },
-  { name: "Anthropic",  src: "/logos/anthropic.svg",  height: "h-6" },
+  { name: "Anthropic",  src: "/logos/anthropic.svg",  height: "h-4" },
 ];
 
 /* ─── Sub-components ────────────────────────────────────────────────── */
