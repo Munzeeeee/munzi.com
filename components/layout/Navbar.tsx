@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Globe, TrendingUp, Zap, ShoppingCart, Cpu, ChevronDown,
@@ -110,9 +111,7 @@ export function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 bg-zinc-950 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm tracking-tight">M</span>
-            </div>
+            <Image src="/logo.png" alt="Munzeer" width={34} height={34} className="w-[34px] h-[34px] object-contain" priority />
             <span className="font-bold text-zinc-950 text-[17px] tracking-tight">Munzeer</span>
           </Link>
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Globe } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone, Globe } from "lucide-react";
 
 const footerLinks = {
   services: [
@@ -40,9 +41,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-zinc-950 font-bold text-sm">M</span>
-              </div>
+              <Image src="/logo.png" alt="Munzeer" width={34} height={34} className="w-[34px] h-[34px] object-contain" />
               <span className="font-bold text-white text-lg tracking-tight">
                 Munzeer<span className="text-violet-400">.com</span>
               </span>

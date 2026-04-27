@@ -53,6 +53,10 @@ export const metadata: Metadata = {
     description:
       "Premium digital agency offering web development, digital marketing, AI automation, marketplace listings, and smart business tools.",
   },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   robots: {
     index: true,
     follow: true,
