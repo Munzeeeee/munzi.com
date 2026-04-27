@@ -129,45 +129,44 @@ export function MerchSection() {
 
 function TeeCard({ tee, wide = false }: { tee: (typeof tees)[number]; wide?: boolean }) {
   return (
-    <Link
-      href={`/products/${tee.slug}`}
-      className="group bg-white border border-zinc-100 rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-zinc-200/70 hover:-translate-y-1 transition-all duration-300 flex flex-col"
-    >
-      {/* Image / mockup */}
-      <div className={`relative overflow-hidden bg-zinc-50 ${wide ? "aspect-video" : "aspect-square"}`}>
-        {tee.image ? (
-          <Image
-            src={tee.image}
-            alt={tee.name}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-          />
-        ) : (
-          <div className={`w-full h-full flex items-center justify-center ${tee.darkMockup ? "bg-zinc-950" : "bg-zinc-50"}`}>
-            {tee.darkMockup ? (
-              <div className="text-center font-mono px-4">
-                <p className="text-green-400 text-xs mb-2 opacity-70">$ ▊</p>
-                {tee.mockupText!.map((line, i) => (
-                  <p key={i} className="text-white font-bold text-sm leading-snug">{line}</p>
-                ))}
-              </div>
-            ) : (
-              <div className="text-center px-4">
-                {tee.mockupText!.map((line, i) => (
-                  <p key={i} className="text-zinc-950 font-black text-2xl leading-none tracking-tighter">{line}</p>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+    <div className="group bg-white border border-zinc-100 rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-zinc-200/70 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+      {/* Clickable image area → product page */}
+      <Link href={`/products/${tee.slug}`} className="block">
+        <div className={`relative overflow-hidden bg-zinc-50 ${wide ? "aspect-video" : "aspect-square"}`}>
+          {tee.image ? (
+            <Image
+              src={tee.image}
+              alt={tee.name}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+            />
+          ) : (
+            <div className={`w-full h-full flex items-center justify-center ${tee.darkMockup ? "bg-zinc-950" : "bg-zinc-50"}`}>
+              {tee.darkMockup ? (
+                <div className="text-center font-mono px-4">
+                  <p className="text-green-400 text-xs mb-2 opacity-70">$ ▊</p>
+                  {tee.mockupText!.map((line, i) => (
+                    <p key={i} className="text-white font-bold text-sm leading-snug">{line}</p>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center px-4">
+                  {tee.mockupText!.map((line, i) => (
+                    <p key={i} className="text-zinc-950 font-black text-2xl leading-none tracking-tighter">{line}</p>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </Link>
 
       {/* Info */}
       <div className="p-3 flex-1 flex flex-col">
-        <p className="font-semibold text-zinc-950 text-sm group-hover:text-violet-600 transition-colors leading-tight mb-2">
+        <Link href={`/products/${tee.slug}`} className="font-semibold text-zinc-950 text-sm hover:text-violet-600 transition-colors leading-tight mb-2 block">
           {tee.name}
-        </p>
+        </Link>
         <div className="flex flex-wrap gap-1 mb-3">
           {sizes.map((s) => (
             <span key={s} className="text-[10px] font-medium text-zinc-400 border border-zinc-200 rounded px-1.5 py-0.5 bg-zinc-50">
@@ -177,18 +176,17 @@ function TeeCard({ tee, wide = false }: { tee: (typeof tees)[number]; wide?: boo
         </div>
         <div className="mt-auto flex items-center justify-between pt-2 border-t border-zinc-100">
           <span className="font-bold text-zinc-950">${tee.price}</span>
-          <Link
+          <a
             href={`https://wa.me/971569793494?text=${tee.waMsg}`}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
             className="flex items-center gap-1 text-xs font-semibold bg-green-600 hover:bg-green-500 text-white px-2.5 py-1.5 rounded-lg transition-colors"
           >
             <MessageCircle className="w-3 h-3" />
             Buy
-          </Link>
+          </a>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
