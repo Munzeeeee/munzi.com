@@ -27,7 +27,9 @@ interface ServiceCardProps {
 export function ServiceCard({ service }: ServiceCardProps) {
   const color = categoryColors[service.categorySlug] || "text-violet-600";
   const bg = categoryBg[service.categorySlug] || "bg-violet-50";
-  const IconComponent = (Icons as Record<string, React.ComponentType<{ className?: string }>>)[service.icon];
+  const IconComponent =
+    (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[service.icon] ||
+    Icons.Package;
 
   return (
     <Link

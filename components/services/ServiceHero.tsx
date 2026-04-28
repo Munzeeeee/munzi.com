@@ -18,7 +18,9 @@ interface ServiceHeroProps {
 
 export function ServiceHero({ service }: ServiceHeroProps) {
   const colors = categoryColors[service.categorySlug] || categoryColors["web-development"];
-  const IconComponent = (Icons as Record<string, React.ComponentType<{ className?: string }>>)[service.icon];
+  const IconComponent =
+    (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[service.icon] ||
+    Icons.Package;
 
   return (
     <section className="relative bg-white pt-8 pb-12 border-b border-zinc-100">
