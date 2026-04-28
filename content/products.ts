@@ -321,7 +321,6 @@ export const products: Product[] = [
     image: "/merch/lazy-monkey.jpg",
     coverBg: "bg-zinc-100",
     coverEmoji: "🐱",
-    comingSoon: true,
     features: [
       "100% combed cotton, 180gsm",
       "Unisex fit, sizes S–3XL",
@@ -342,7 +341,6 @@ export const products: Product[] = [
     image: "/merch/savage-claw.jpg",
     coverBg: "bg-zinc-100",
     coverEmoji: "🐾",
-    comingSoon: true,
     features: [
       "100% combed cotton, 180gsm",
       "Unisex fit, sizes S–3XL",
@@ -363,7 +361,6 @@ export const products: Product[] = [
     image: "/merch/shadow-kitty-tee.jpg",
     coverBg: "bg-zinc-100",
     coverEmoji: "🐈‍⬛",
-    comingSoon: true,
     features: [
       "100% combed cotton, 180gsm",
       "Unisex fit, sizes S–3XL",
@@ -384,7 +381,6 @@ export const products: Product[] = [
     image: "/merch/stealth-paw.jpg",
     coverBg: "bg-zinc-100",
     coverEmoji: "🐾",
-    comingSoon: true,
     features: [
       "100% combed cotton, 180gsm",
       "Unisex fit, sizes S–3XL",
@@ -405,7 +401,6 @@ export const products: Product[] = [
     image: "/merch/unknown-being.jpg",
     coverBg: "bg-zinc-100",
     coverEmoji: "👽",
-    comingSoon: true,
     features: [
       "100% combed cotton, 180gsm",
       "Unisex fit, sizes S–3XL",
