@@ -225,7 +225,7 @@ export function MerchSection() {
             <Truck className="w-5 h-5 text-zinc-400 shrink-0" />
             <span>
               Order via WhatsApp — reply with your size and we&apos;ll send a payment link.
-              Ships to UAE and worldwide.
+              Worldwide Shipping Available.
             </span>
           </div>
           <a

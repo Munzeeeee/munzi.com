@@ -220,6 +220,47 @@ export const products: Product[] = [
     deliveryFormat: "Web App (lifetime access)",
   },
 
+  // ─── Smart Tools ──────────────────────────────────────────────
+  {
+    slug: "google-review-card",
+    name: "Google Review NFC Card",
+    tagline: "Customers tap to leave a Google review — instantly",
+    description:
+      "An NFC-powered card that customers tap with their phone to land directly on your Google review page. No app needed, works with all modern smartphones. Fully branded with your business name and logo.",
+    price: 49,
+    category: "Smart Tools",
+    badge: "Bestseller",
+    coverBg: "bg-yellow-50",
+    coverEmoji: "⭐",
+    features: [
+      "NFC + QR code dual technology",
+      "Links directly to your Google review page",
+      "Custom branded card design",
+      "Works with all modern smartphones",
+      "Tracked URL with scan analytics",
+    ],
+    deliveryFormat: "NFC Card (shipped)",
+  },
+  {
+    slug: "digital-business-card",
+    name: "Digital Business Card",
+    tagline: "Tap to share your contact — no app needed",
+    description:
+      "A smart NFC card that instantly shares your contact details, social links, and website with a single tap. Your digital profile page is always up to date — no reprinting needed. Includes analytics dashboard.",
+    price: 79,
+    category: "Smart Tools",
+    coverBg: "bg-blue-50",
+    coverEmoji: "💼",
+    features: [
+      "NFC + QR code on one card",
+      "Custom digital profile page",
+      "All social & contact links",
+      "Analytics dashboard",
+      "Lifetime free profile updates",
+    ],
+    deliveryFormat: "NFC Card (shipped)",
+  },
+
   // ─── Printables ───────────────────────────────────────────────
   {
     slug: "budget-planner-printable",

@@ -16,7 +16,7 @@ export function ProductCard({ product }: ProductCardProps) {
       className="group flex flex-col bg-white border border-zinc-200 rounded-[1rem] overflow-hidden hover:shadow-[0_4px_24px_0_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-200"
     >
       {/* Cover */}
-      <div className={`relative w-full h-40 flex items-center justify-center ${product.coverBg || "bg-zinc-50"}`}>
+      <div className={`relative w-full aspect-square flex items-center justify-center ${product.coverBg || "bg-zinc-50"}`}>
         {product.image ? (
           <Image
             src={product.image}
@@ -25,7 +25,7 @@ export function ProductCard({ product }: ProductCardProps) {
             className="object-cover"
           />
         ) : (
-          <span className="text-5xl select-none" role="img" aria-label={product.name}>
+          <span className="text-6xl select-none" role="img" aria-label={product.name}>
             {product.coverEmoji || "📦"}
           </span>
         )}
