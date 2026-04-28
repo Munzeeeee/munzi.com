@@ -12,6 +12,7 @@ export interface Product {
   coverBg?: string;
   coverEmoji?: string;
   image?: string;
+  comingSoon?: boolean;
 }
 
 export const products: Product[] = [
@@ -27,6 +28,7 @@ export const products: Product[] = [
     badge: "Bestseller",
     coverBg: "bg-violet-100",
     coverEmoji: "✅",
+    comingSoon: true,
     features: [
       "80-point pre-launch checklist",
       "PDF + Notion template",
@@ -47,6 +49,7 @@ export const products: Product[] = [
     badge: "Popular",
     coverBg: "bg-blue-100",
     coverEmoji: "📈",
+    comingSoon: true,
     features: [
       "Keyword research Excel template",
       "50+ proven ad headline swipe file",
@@ -62,7 +65,7 @@ export const products: Product[] = [
     tagline: "Run a professional SEO audit on any website in 2 hours",
     description:
       "The exact template our SEO team uses to audit client websites. Covers technical SEO, on-page, off-page, Core Web Vitals, and content gaps. Includes a scoring system and priority matrix.",
-    price: 39,
+    price: 20,
     category: "Templates",
     coverBg: "bg-teal-100",
     coverEmoji: "🔍",
@@ -85,6 +88,7 @@ export const products: Product[] = [
     category: "Templates",
     coverBg: "bg-orange-100",
     coverEmoji: "📦",
+    comingSoon: true,
     features: [
       "50 listing templates (10 categories)",
       "Title formulas that rank",
@@ -102,7 +106,7 @@ export const products: Product[] = [
     tagline: "Save 10+ hours/week with these proven automation workflows",
     description:
       "A practical eBook covering 20 real automation workflows using Make.com, Zapier, and ChatGPT. Includes step-by-step setup guides for WhatsApp auto-reply, lead qualification, invoice automation, and social media scheduling.",
-    price: 49,
+    price: 35,
     category: "eBooks",
     badge: "New",
     coverBg: "bg-indigo-100",
@@ -144,7 +148,7 @@ export const products: Product[] = [
     tagline: "200+ prompts for marketing, sales, operations, and support",
     description:
       "A curated pack of 200+ ChatGPT prompts organised by business function. Covers social media, email marketing, customer support, product descriptions, SEO, HR, and more.",
-    price: 25,
+    price: 10,
     category: "Prompt Packs",
     badge: "Popular",
     coverBg: "bg-emerald-100",
@@ -164,7 +168,7 @@ export const products: Product[] = [
     tagline: "500+ prompts for content creators, designers & marketers",
     description:
       "A carefully curated collection of 500+ AI prompts for content creators. Covers YouTube scripts, Instagram captions, blog posts, newsletter writing, design briefs, brand storytelling, and more. Works with ChatGPT, Claude, and Gemini.",
-    price: 19,
+    price: 10,
     category: "Prompt Packs",
     coverBg: "bg-purple-100",
     coverEmoji: "✨",
@@ -210,6 +214,7 @@ export const products: Product[] = [
     badge: "New",
     coverBg: "bg-cyan-100",
     coverEmoji: "⚡",
+    comingSoon: true,
     features: [
       "Dynamic QR codes — edit destination anytime",
       "Scan analytics (count, location, device)",
@@ -227,7 +232,7 @@ export const products: Product[] = [
     tagline: "Customers tap to leave a Google review — instantly",
     description:
       "An NFC-powered card that customers tap with their phone to land directly on your Google review page. No app needed, works with all modern smartphones. Fully branded with your business name and logo.",
-    price: 49,
+    price: 13.99,
     category: "Smart Tools",
     badge: "Bestseller",
     coverBg: "bg-yellow-50",
@@ -247,7 +252,7 @@ export const products: Product[] = [
     tagline: "Tap to share your contact — no app needed",
     description:
       "A smart NFC card that instantly shares your contact details, social links, and website with a single tap. Your digital profile page is always up to date — no reprinting needed. Includes analytics dashboard.",
-    price: 79,
+    price: 9.99,
     category: "Smart Tools",
     coverBg: "bg-blue-50",
     coverEmoji: "💼",
@@ -273,6 +278,7 @@ export const products: Product[] = [
     badge: "Bestseller",
     coverBg: "bg-rose-100",
     coverEmoji: "📊",
+    comingSoon: true,
     features: [
       "12-month budget tracker",
       "Weekly expense log sheets",
@@ -292,6 +298,7 @@ export const products: Product[] = [
     category: "Printables",
     coverBg: "bg-pink-100",
     coverEmoji: "📱",
+    comingSoon: true,
     features: [
       "90-day content calendar grid",
       "Platform-specific posting guides",
@@ -314,6 +321,7 @@ export const products: Product[] = [
     image: "/merch/lazy-monkey.jpg",
     coverBg: "bg-zinc-100",
     coverEmoji: "🐱",
+    comingSoon: true,
     features: [
       "100% combed cotton, 180gsm",
       "Unisex fit, sizes S–3XL",
@@ -334,6 +342,7 @@ export const products: Product[] = [
     image: "/merch/savage-claw.jpg",
     coverBg: "bg-zinc-100",
     coverEmoji: "🐾",
+    comingSoon: true,
     features: [
       "100% combed cotton, 180gsm",
       "Unisex fit, sizes S–3XL",
@@ -354,6 +363,7 @@ export const products: Product[] = [
     image: "/merch/shadow-kitty-tee.jpg",
     coverBg: "bg-zinc-100",
     coverEmoji: "🐈‍⬛",
+    comingSoon: true,
     features: [
       "100% combed cotton, 180gsm",
       "Unisex fit, sizes S–3XL",
@@ -374,6 +384,7 @@ export const products: Product[] = [
     image: "/merch/stealth-paw.jpg",
     coverBg: "bg-zinc-100",
     coverEmoji: "🐾",
+    comingSoon: true,
     features: [
       "100% combed cotton, 180gsm",
       "Unisex fit, sizes S–3XL",
@@ -394,6 +405,7 @@ export const products: Product[] = [
     image: "/merch/unknown-being.jpg",
     coverBg: "bg-zinc-100",
     coverEmoji: "👽",
+    comingSoon: true,
     features: [
       "100% combed cotton, 180gsm",
       "Unisex fit, sizes S–3XL",

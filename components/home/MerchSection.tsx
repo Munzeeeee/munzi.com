@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MessageCircle, Truck, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { MessageCircle, Truck, ArrowRight, ChevronLeft, ChevronRight, Clock } from "lucide-react";
+import { products } from "@/content/products";
 
 const tees: { slug: string; name: string; price: number; image: string; waMsg: string }[] = [
   {
@@ -183,16 +184,28 @@ export function MerchSection() {
                         </div>
 
                         <div className="flex items-center justify-between">
-                          <span className="text-lg font-bold text-zinc-950">${tee.price}</span>
-                          <a
-                            href={`https://wa.me/971569793494?text=${tee.waMsg}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 text-xs font-semibold bg-green-600 hover:bg-green-500 text-white px-3 py-2 rounded-xl transition-colors"
-                          >
-                            <MessageCircle className="w-3.5 h-3.5" />
-                            Buy Now
-                          </a>
+                          {(() => {
+                            const productData = products.find((p) => p.slug === tee.slug);
+                            const isComingSoon = productData?.comingSoon ?? false;
+                            return isComingSoon ? (
+                              <span className="text-xs font-semibold text-zinc-400 bg-zinc-100 px-2.5 py-1.5 rounded-lg flex items-center gap-1">
+                                <Clock className="w-3 h-3" /> Coming Soon
+                              </span>
+                            ) : (
+                              <>
+                                <span className="text-lg font-bold text-zinc-950">${tee.price}</span>
+                                <a
+                                  href={`https://wa.me/971569793494?text=${tee.waMsg}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-1.5 text-xs font-semibold bg-green-600 hover:bg-green-500 text-white px-3 py-2 rounded-xl transition-colors"
+                                >
+                                  <MessageCircle className="w-3.5 h-3.5" />
+                                  Buy Now
+                                </a>
+                              </>
+                            );
+                          })()}
                         </div>
                       </div>
                     </div>

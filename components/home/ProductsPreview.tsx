@@ -109,11 +109,17 @@ export function ProductsPreview() {
                           {product.coverEmoji || "📦"}
                         </span>
                       )}
-                      {product.badge && (
+                      {product.comingSoon ? (
+                        <div className="absolute inset-0 bg-white/50 flex items-center justify-center">
+                          <span className="flex items-center gap-1 bg-zinc-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">
+                            Coming Soon
+                          </span>
+                        </div>
+                      ) : product.badge ? (
                         <span className="absolute top-2 left-2 text-xs font-semibold text-violet-600 bg-white/90 backdrop-blur-sm border border-violet-100 px-2 py-0.5 rounded-full shadow-sm">
                           {product.badge}
                         </span>
-                      )}
+                      ) : null}
                     </div>
 
                     {/* Info */}
@@ -128,15 +134,23 @@ export function ProductsPreview() {
                         {product.tagline}
                       </p>
                       <div className="flex items-center justify-between pt-3 border-t border-zinc-100">
-                        <span className="font-bold text-zinc-950">${product.price}</span>
-                        <span className="flex items-center gap-1 text-[10px] text-zinc-400">
-                          {isShipped(product.deliveryFormat) ? (
-                            <Truck className="w-3 h-3" />
-                          ) : (
-                            <Download className="w-3 h-3" />
-                          )}
-                          {isShipped(product.deliveryFormat) ? "Shipped" : "Instant download"}
-                        </span>
+                        {product.comingSoon ? (
+                          <span className="text-xs font-semibold text-zinc-400 bg-zinc-100 px-2.5 py-1 rounded-full">
+                            Coming Soon
+                          </span>
+                        ) : (
+                          <>
+                            <span className="font-bold text-zinc-950">${product.price}</span>
+                            <span className="flex items-center gap-1 text-[10px] text-zinc-400">
+                              {isShipped(product.deliveryFormat) ? (
+                                <Truck className="w-3 h-3" />
+                              ) : (
+                                <Download className="w-3 h-3" />
+                              )}
+                              {isShipped(product.deliveryFormat) ? "Shipped" : "Instant download"}
+                            </span>
+                          </>
+                        )}
                       </div>
                     </div>
                   </Link>
@@ -145,20 +159,20 @@ export function ProductsPreview() {
             })}
           </div>
         </div>
+      </div>
 
-        {/* Dot indicators */}
-        <div className="flex items-center justify-center gap-1.5 mt-7">
-          {Array.from({ length: max + 1 }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setStart(i)}
-              className={`rounded-full transition-all duration-300 ${
-                i === start ? "w-5 h-2 bg-violet-600" : "w-2 h-2 bg-zinc-300 hover:bg-zinc-400"
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
-        </div>
+      {/* Dot indicators — outside relative wrapper so arrows center on track only */}
+      <div className="flex items-center justify-center gap-1.5 mt-7">
+        {Array.from({ length: max + 1 }).map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setStart(i)}
+            className={`rounded-full transition-all duration-300 ${
+              i === start ? "w-5 h-2 bg-violet-600" : "w-2 h-2 bg-zinc-300 hover:bg-zinc-400"
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

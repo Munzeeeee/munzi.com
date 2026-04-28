@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Check, Download, Truck, ArrowLeft, MessageCircle } from "lucide-react";
+import { Check, Download, Truck, Clock, ArrowLeft, MessageCircle } from "lucide-react";
 import { products } from "@/content/products";
 
 const isShipped = (fmt: string) => fmt.toLowerCase().includes("ship");
@@ -52,32 +52,49 @@ export default async function ProductPage({ params }: Props) {
             </h1>
             <p className="text-lg text-violet-600 font-medium mb-4">{product.tagline}</p>
             <p className="text-zinc-500 leading-relaxed mb-6">{product.description}</p>
-            <div className="flex items-center gap-2 text-sm text-zinc-500 mb-8">
-              {isShipped(product.deliveryFormat) ? <Truck className="w-4 h-4" /> : <Download className="w-4 h-4" />}
-              {isShipped(product.deliveryFormat) ? "Delivery:" : "Delivered as:"}{" "}
-              <span className="font-medium text-zinc-700">{product.deliveryFormat}</span>
-            </div>
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-5xl font-bold text-zinc-950">${product.price}</span>
-              <span className="text-zinc-400 text-sm">one-time payment</span>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link
-                href={`https://wa.me/971569793494?text=Hi%2C+I%27d+like+to+buy+${encodeURIComponent(product.name)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Buy via WhatsApp
-              </Link>
-              <Link href="/contact" className="btn-outline">
-                Ask a question
-              </Link>
-            </div>
-            <p className="text-xs text-zinc-400 mt-3">
-              Payment link sent via WhatsApp after enquiry. Instant delivery on payment.
-            </p>
+            {!product.comingSoon && (
+              <div className="flex items-center gap-2 text-sm text-zinc-500 mb-8">
+                {isShipped(product.deliveryFormat) ? <Truck className="w-4 h-4" /> : <Download className="w-4 h-4" />}
+                {isShipped(product.deliveryFormat) ? "Delivery:" : "Delivered as:"}{" "}
+                <span className="font-medium text-zinc-700">{product.deliveryFormat}</span>
+              </div>
+            )}
+
+            {product.comingSoon ? (
+              <div className="mb-8">
+                <div className="inline-flex items-center gap-2 bg-zinc-100 border border-zinc-200 text-zinc-600 text-sm font-semibold px-5 py-3 rounded-xl mb-4">
+                  <Clock className="w-4 h-4" />
+                  Coming Soon
+                </div>
+                <p className="text-sm text-zinc-400">
+                  This product is not yet available. Join our WhatsApp to be notified when it launches.
+                </p>
+              </div>
+            ) : (
+              <>
+                <div className="flex items-center gap-4 mb-8">
+                  <span className="text-5xl font-bold text-zinc-950">${product.price}</span>
+                  <span className="text-zinc-400 text-sm">one-time payment</span>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link
+                    href={`https://wa.me/971569793494?text=Hi%2C+I%27d+like+to+buy+${encodeURIComponent(product.name)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    Buy via WhatsApp
+                  </Link>
+                  <Link href="/contact" className="btn-outline">
+                    Ask a question
+                  </Link>
+                </div>
+                <p className="text-xs text-zinc-400 mt-3">
+                  Payment link sent via WhatsApp after enquiry. Instant delivery on payment.
+                </p>
+              </>
+            )}
           </div>
 
           {/* Right: cover + features */}
