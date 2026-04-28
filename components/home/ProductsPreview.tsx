@@ -75,7 +75,7 @@ export function ProductsPreview() {
         </button>
 
         {/* Track */}
-        <div className="overflow-hidden">
+        <div className="overflow-x-hidden px-px pt-3 -mt-3 pb-3 -mb-3">
           <div
             className="flex gap-5 transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(calc(-${start} * (100% / ${VISIBLE} + 20px / ${VISIBLE} * (${VISIBLE} - 1))))` }}
