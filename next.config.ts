@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "cdn.jsdelivr.net" },
     ],
   },
+  async rewrites() {
+    return [{ source: "/onboarding", destination: "/onboarding.html" }];
+  },
 };
 
 export default nextConfig;
