@@ -9,7 +9,10 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
-    return [{ source: "/onboarding", destination: "/onboarding.html" }];
+    return [
+      { source: "/onboarding", destination: "/onboarding.html" },
+      { source: "/web-design-uae", destination: "/landing-web-design-uae.html" },
+    ];
   },
 };
 
